@@ -18,4 +18,15 @@ class Student
   def Student.find(id)
     return Student.all[id.to_i]
   end
+
+  def Student.order(field_direction)
+    field = field_direction.split.first
+    direction = field_direction.split.last
+
+    if direction.downcase == "desc"
+      return Student.all.sort { |a, b| b[field] <=> a[field] }
+    else
+      return Student.all.sort { |a, b| a[field] <=> b[field] }
+    end
+  end
 end
