@@ -1,14 +1,16 @@
 <h1>List of Students</h1>
 
 <ul>
-  <% @students.each_with_index do |s, i| %>
+  <% which_index = 0 %>
+  <% @students.each do |s| %>
     <li>
       <img width="200" src="<%= s["profile_pic_url"] %>">
       <h3>
-        <a href="http://localhost:3000/students/<%= i %>">
+        <a href="http://localhost:3000/students/<%= which_index %>">
           <%= s["first_name"] %> <%= s["last_name"] %>
         </a>
       </h3>
     </li>
+    <% which_index = which_index + 1 %>
   <% end %>
 </ul>
